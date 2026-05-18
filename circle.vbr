@@ -1,0 +1,116 @@
+{
+  "nodes": {
+    "8aa36e89-383b-48c1-b300-56be60b1a165": {
+      "module": "nodes.io_nodes",
+      "class": "LoadImageNode",
+      "properties": {
+        "file_path": "C:/Users/\uac15\uaddc\ub9ac/Desktop/LucusEdge/opencv/circle.jpg"
+      },
+      "node_name": "Load Image",
+      "category": "Image"
+    },
+    "c65ff57d-b3ba-4a51-9757-88601cec89b0": {
+      "module": "nodes.measurement_nodes",
+      "class": "MeasureCircleNode",
+      "properties": {
+        "roi_cx": 335,
+        "roi_cy": 231,
+        "roi_rx": 262,
+        "roi_ry": 232,
+        "roi_inner_rx": 50,
+        "roi_inner_ry": 50,
+        "preprocess": "None",
+        "blur_size": 3,
+        "clahe_clip": 2.6999999999999997,
+        "detect_algo": "EdgeFit",
+        "thresh_mode": "Otsu",
+        "thresh_val": 128,
+        "invert": false,
+        "circularity_min": 0.2,
+        "ransac_tol": 4.0,
+        "debug_view": false,
+        "dp": 1.2,
+        "min_dist": 15.0,
+        "param1": 35.0,
+        "param2": 0.7,
+        "min_radius": 0,
+        "max_radius": 0,
+        "calibration_factor": 1.0
+      },
+      "node_name": "Measure Circle",
+      "category": "Measurement"
+    },
+    "836779ca-434b-48d2-a705-f2072681b8f3": {
+      "module": "nodes.preprocessing_nodes",
+      "class": "CropROINode",
+      "properties": {
+        "roi_x": 34,
+        "roi_y": 11,
+        "roi_w": 197,
+        "roi_h": 148
+      },
+      "node_name": "Crop ROI",
+      "category": "Preprocessing"
+    },
+    "266cd96f-f29f-47a0-bed5-8dd5d6958caf": {
+      "module": "nodes.preprocessing_nodes",
+      "class": "ResizeNode",
+      "properties": {
+        "roi_x": 0,
+        "roi_y": 0,
+        "roi_w": 0,
+        "roi_h": 0,
+        "width": 640,
+        "height": 480,
+        "interpolation": "LANCZOS",
+        "keep_aspect": true
+      },
+      "node_name": "Resize",
+      "category": "Preprocessing"
+    },
+    "e3beef58-05a6-496a-854a-881974f21a0f": {
+      "module": "nodes.feature_nodes",
+      "class": "HoughCirclesNode",
+      "properties": {
+        "roi_x": 0,
+        "roi_y": 0,
+        "roi_w": 637,
+        "roi_h": 478,
+        "dp": 1.0,
+        "min_dist": 15.0,
+        "param1": 35.0,
+        "param2": 24.0,
+        "min_radius": 25,
+        "max_radius": 100
+      },
+      "node_name": "Find Circles",
+      "category": "Find Functions"
+    }
+  },
+  "connections": [
+    [
+      "8aa36e89-383b-48c1-b300-56be60b1a165",
+      "image",
+      "836779ca-434b-48d2-a705-f2072681b8f3",
+      "image"
+    ],
+    [
+      "836779ca-434b-48d2-a705-f2072681b8f3",
+      "image",
+      "266cd96f-f29f-47a0-bed5-8dd5d6958caf",
+      "image"
+    ],
+    [
+      "266cd96f-f29f-47a0-bed5-8dd5d6958caf",
+      "image",
+      "c65ff57d-b3ba-4a51-9757-88601cec89b0",
+      "image"
+    ],
+    [
+      "266cd96f-f29f-47a0-bed5-8dd5d6958caf",
+      "image",
+      "e3beef58-05a6-496a-854a-881974f21a0f",
+      "image"
+    ]
+  ]
+}

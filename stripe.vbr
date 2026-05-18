@@ -1,0 +1,77 @@
+{
+  "nodes": {
+    "a1b60234-5e74-4807-9e27-4c55bd58aff9": {
+      "module": "nodes.feature_nodes",
+      "class": "FindStripeNode",
+      "properties": {
+        "x1": 5,
+        "y1": 74,
+        "x2": 402,
+        "y2": 74,
+        "transition": "Strongest",
+        "smoothing": 2.0,
+        "projection_width": 5,
+        "marker_size": 20,
+        "min_gradient": 10.0,
+        "calibration_factor": 1.0,
+        "_aln_ref_x": 0.0,
+        "_aln_ref_y": 0.0
+      },
+      "node_name": "Find Stripe",
+      "category": "Find Functions"
+    },
+    "f9f4f27e-3764-4566-8312-b18efbf42f3f": {
+      "module": "nodes.io_nodes",
+      "class": "LoadImageNode",
+      "properties": {
+        "file_path": "C:/LucusEdge/Example/04.OCR/data/1.png"
+      },
+      "node_name": "Load Image",
+      "category": "Image"
+    },
+    "35388464-0e05-49cb-9150-9e0c2529bcbe": {
+      "module": "nodes.preprocessing_nodes",
+      "class": "CropROINode",
+      "properties": {
+        "roi_x": 171,
+        "roi_y": 339,
+        "roi_w": 416,
+        "roi_h": 167
+      },
+      "node_name": "Crop ROI",
+      "category": "Preprocessing"
+    },
+    "12b39c90-315a-4837-8651-7d16bf19e208": {
+      "module": "nodes.preprocessing_nodes",
+      "class": "GrayscaleNode",
+      "properties": {
+        "roi_x": 23,
+        "roi_y": 16,
+        "roi_w": 364,
+        "roi_h": 142
+      },
+      "node_name": "Grayscale",
+      "category": "Preprocessing"
+    }
+  },
+  "connections": [
+    [
+      "f9f4f27e-3764-4566-8312-b18efbf42f3f",
+      "image",
+      "35388464-0e05-49cb-9150-9e0c2529bcbe",
+      "image"
+    ],
+    [
+      "35388464-0e05-49cb-9150-9e0c2529bcbe",
+      "image",
+      "12b39c90-315a-4837-8651-7d16bf19e208",
+      "image"
+    ],
+    [
+      "12b39c90-315a-4837-8651-7d16bf19e208",
+      "image",
+      "a1b60234-5e74-4807-9e27-4c55bd58aff9",
+      "image"
+    ]
+  ]
+}
