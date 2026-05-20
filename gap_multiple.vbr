@@ -1,0 +1,89 @@
+{
+  "nodes": {
+    "98f1c74f-adfe-4d5c-b645-ff2fa91a82d9": {
+      "module": "nodes.feature_nodes",
+      "class": "FindGapMultipleNode",
+      "properties": {
+        "x1": 43,
+        "y1": 169,
+        "x2": 664,
+        "y2": 170,
+        "gap_type": "Dark Gap",
+        "smoothing": 2.0,
+        "projection_width": 5,
+        "min_gradient": 5.0,
+        "min_width": 0.0,
+        "max_width": 0.0,
+        "calibration_factor": 1.0,
+        "marker_size": 15,
+        "max_results": 0,
+        "min_peak_distance": 4,
+        "_aln_ref_x": 0.0,
+        "_aln_ref_y": 0.0
+      },
+      "node_name": "Find Gap Multiple",
+      "category": "Find Functions"
+    },
+    "8b5743a9-781d-4b21-913c-11778fafebf3": {
+      "module": "nodes.decision_nodes",
+      "class": "PassFailDecisionNode",
+      "properties": {
+        "roi_x": 0,
+        "roi_y": 134,
+        "roi_w": 702,
+        "roi_h": 80,
+        "decision_mode": "ALL_PASS"
+      },
+      "node_name": "Pass/Fail Decision",
+      "category": "Decision"
+    },
+    "2088f775-7731-494d-89e7-1817e9c976f3": {
+      "module": "nodes.decision_nodes",
+      "class": "DisplayNode",
+      "properties": {
+        "roi_x": 0,
+        "roi_y": 0,
+        "roi_w": 0,
+        "roi_h": 0,
+        "blend_mode": "OVERLAY"
+      },
+      "node_name": "Display",
+      "category": "Decision"
+    },
+    "9786895b-e2a6-426d-9ae1-f2b07f2095b3": {
+      "module": "nodes.io_nodes",
+      "class": "LoadImageNode",
+      "properties": {
+        "file_path": "C:/Users/\uac15\uaddc\ub9ac/Desktop/LucusEdge/opencv/black.png"
+      },
+      "node_name": "Load Image",
+      "category": "Image"
+    }
+  },
+  "connections": [
+    [
+      "98f1c74f-adfe-4d5c-b645-ff2fa91a82d9",
+      "count",
+      "8b5743a9-781d-4b21-913c-11778fafebf3",
+      "results"
+    ],
+    [
+      "8b5743a9-781d-4b21-913c-11778fafebf3",
+      "result",
+      "2088f775-7731-494d-89e7-1817e9c976f3",
+      "result"
+    ],
+    [
+      "98f1c74f-adfe-4d5c-b645-ff2fa91a82d9",
+      "image",
+      "2088f775-7731-494d-89e7-1817e9c976f3",
+      "image1"
+    ],
+    [
+      "9786895b-e2a6-426d-9ae1-f2b07f2095b3",
+      "image",
+      "98f1c74f-adfe-4d5c-b645-ff2fa91a82d9",
+      "image"
+    ]
+  ]
+}

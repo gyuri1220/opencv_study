@@ -1,0 +1,51 @@
+{
+  "nodes": {
+    "f9f4f27e-3764-4566-8312-b18efbf42f3f": {
+      "module": "nodes.io_nodes",
+      "class": "LoadImageNode",
+      "properties": {
+        "file_path": "C:/Users/\uac15\uaddc\ub9ac/Desktop/LucusEdge/opencv/panorama1.png"
+      },
+      "node_name": "Load Image",
+      "category": "Image"
+    },
+    "03cce5a4-08b7-4693-8b10-013e1ceeb2cf": {
+      "module": "nodes.io_nodes",
+      "class": "LoadImageNode",
+      "properties": {
+        "file_path": "C:/Users/\uac15\uaddc\ub9ac/Desktop/LucusEdge/opencv/panorama2.png"
+      },
+      "node_name": "Load Image",
+      "category": "Image"
+    },
+    "b336af2e-4c18-49fd-802d-6fd9059a7577": {
+      "module": "nodes.preprocessing_nodes",
+      "class": "ImageStitchNode",
+      "properties": {
+        "roi_x": 0,
+        "roi_y": 0,
+        "roi_w": 0,
+        "roi_h": 0,
+        "mode": "Horizontal",
+        "direction": "Vertical",
+        "blend_pixels": 120
+      },
+      "node_name": "Find Stitch",
+      "category": "Find Functions"
+    }
+  },
+  "connections": [
+    [
+      "f9f4f27e-3764-4566-8312-b18efbf42f3f",
+      "image",
+      "b336af2e-4c18-49fd-802d-6fd9059a7577",
+      "image1"
+    ],
+    [
+      "03cce5a4-08b7-4693-8b10-013e1ceeb2cf",
+      "image",
+      "b336af2e-4c18-49fd-802d-6fd9059a7577",
+      "image2"
+    ]
+  ]
+}

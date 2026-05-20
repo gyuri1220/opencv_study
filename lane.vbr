@@ -1,0 +1,136 @@
+{
+  "nodes": {
+    "8781b60f-ee4a-4648-8102-e8ec5382851d": {
+      "module": "nodes.io_nodes",
+      "class": "LoadImageNode",
+      "properties": {
+        "file_path": "C:/Users/\uac15\uaddc\ub9ac/Desktop/LucusEdge/opencv/lane.jpg"
+      },
+      "node_name": "Load Image",
+      "category": "Image"
+    },
+    "ddb8df8d-55c1-4eef-81a8-5e782eb6a112": {
+      "module": "nodes.feature_nodes",
+      "class": "HoughLinesNode",
+      "properties": {
+        "roi_x": 0,
+        "roi_y": 0,
+        "roi_w": 1019,
+        "roi_h": 495,
+        "threshold": 100,
+        "min_line_length": 80.0,
+        "max_line_gap": 10.0
+      },
+      "node_name": "Find Lines",
+      "category": "Find Functions"
+    },
+    "5a7b7fa6-81dc-4671-997b-01edbf016d6f": {
+      "module": "nodes.preprocessing_nodes",
+      "class": "BilateralFilterNode",
+      "properties": {
+        "roi_x": 0,
+        "roi_y": 0,
+        "roi_w": 0,
+        "roi_h": 0,
+        "d": 9,
+        "sigma_color": 75.0,
+        "sigma_space": 75.0
+      },
+      "node_name": "Bilateral Filter",
+      "category": "Preprocessing"
+    },
+    "e4859759-ac16-465b-ad82-16bf74e03bd1": {
+      "module": "nodes.preprocessing_nodes",
+      "class": "CropROINode",
+      "properties": {
+        "roi_x": 2,
+        "roi_y": 74,
+        "roi_w": 1021,
+        "roi_h": 499
+      },
+      "node_name": "Crop ROI",
+      "category": "Preprocessing"
+    },
+    "8fb20081-2e6e-411f-8e09-8caec17c1f53": {
+      "module": "nodes.feature_nodes",
+      "class": "HoughLinesNode",
+      "properties": {
+        "roi_x": 625,
+        "roi_y": 0,
+        "roi_w": 124,
+        "roi_h": 198,
+        "threshold": 50,
+        "min_line_length": 10.0,
+        "max_line_gap": 10.0
+      },
+      "node_name": "Find Lines",
+      "category": "Find Functions"
+    },
+    "bc0a8557-9b50-4939-94c8-f70990cc50fb": {
+      "module": "nodes.feature_nodes",
+      "class": "HoughLinesNode",
+      "properties": {
+        "roi_x": 772,
+        "roi_y": 0,
+        "roi_w": 220,
+        "roi_h": 73,
+        "threshold": 30,
+        "min_line_length": 10.0,
+        "max_line_gap": 10.0
+      },
+      "node_name": "Find Lines",
+      "category": "Find Functions"
+    },
+    "c6152297-d8fe-4122-b071-77322f6f583c": {
+      "module": "nodes.decision_nodes",
+      "class": "DisplayNode",
+      "properties": {
+        "roi_x": 0,
+        "roi_y": 0,
+        "roi_w": 0,
+        "roi_h": 0,
+        "blend_mode": "OVERLAY"
+      },
+      "node_name": "Display",
+      "category": "Decision"
+    }
+  },
+  "connections": [
+    [
+      "8781b60f-ee4a-4648-8102-e8ec5382851d",
+      "image",
+      "e4859759-ac16-465b-ad82-16bf74e03bd1",
+      "image"
+    ],
+    [
+      "e4859759-ac16-465b-ad82-16bf74e03bd1",
+      "image",
+      "5a7b7fa6-81dc-4671-997b-01edbf016d6f",
+      "image"
+    ],
+    [
+      "5a7b7fa6-81dc-4671-997b-01edbf016d6f",
+      "image",
+      "ddb8df8d-55c1-4eef-81a8-5e782eb6a112",
+      "image"
+    ],
+    [
+      "ddb8df8d-55c1-4eef-81a8-5e782eb6a112",
+      "lines_image",
+      "8fb20081-2e6e-411f-8e09-8caec17c1f53",
+      "image"
+    ],
+    [
+      "8fb20081-2e6e-411f-8e09-8caec17c1f53",
+      "lines_image",
+      "bc0a8557-9b50-4939-94c8-f70990cc50fb",
+      "image"
+    ],
+    [
+      "bc0a8557-9b50-4939-94c8-f70990cc50fb",
+      "lines_image",
+      "c6152297-d8fe-4122-b071-77322f6f583c",
+      "image1"
+    ]
+  ]
+}

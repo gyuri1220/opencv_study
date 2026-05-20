@@ -1,0 +1,130 @@
+{
+  "nodes": {
+    "c80d2acc-419a-4311-b0df-1ce5e64cbb23": {
+      "module": "nodes.io_nodes",
+      "class": "LoadImageNode",
+      "properties": {
+        "file_path": "C:/Users/\uac15\uaddc\ub9ac/Desktop/LucusEdge/opencv/dog.jpg"
+      },
+      "node_name": "Load Image",
+      "category": "Image"
+    },
+    "37a59ac6-db38-4081-aa2c-dbe856ac5528": {
+      "module": "nodes.feature_nodes",
+      "class": "FindContoursNode",
+      "properties": {
+        "roi_x": 4,
+        "roi_y": 33,
+        "roi_w": 286,
+        "roi_h": 362,
+        "mode": "EXTERNAL",
+        "threshold": 127,
+        "min_area": 100.0,
+        "max_area": 1000000000.0
+      },
+      "node_name": "Find Contours",
+      "category": "Find Functions"
+    },
+    "1db017e7-3d6c-44d1-acff-91898b018782": {
+      "module": "nodes.io_nodes",
+      "class": "LoadImageNode",
+      "properties": {
+        "file_path": "C:/LucusEdge/Example/06.Compare/data/h9.png"
+      },
+      "node_name": "Load Image",
+      "category": "Image"
+    },
+    "d12e2421-da60-4fea-a2af-4704d4e478e4": {
+      "module": "nodes.feature_nodes",
+      "class": "FindContoursNode",
+      "properties": {
+        "roi_x": 136,
+        "roi_y": 110,
+        "roi_w": 390,
+        "roi_h": 260,
+        "mode": "EXTERNAL",
+        "threshold": 80,
+        "min_area": 100.0,
+        "max_area": 1000000000.0
+      },
+      "node_name": "Find Contours",
+      "category": "Find Functions"
+    },
+    "1fa61d9d-740a-4c98-9c02-f7d7c695d1d8": {
+      "module": "nodes.feature_nodes",
+      "class": "TemplateMatchNode",
+      "properties": {
+        "roi_x": 150,
+        "roi_y": 110,
+        "roi_w": 371,
+        "roi_h": 267,
+        "model_path": "C:/Users/\uac15\uaddc\ub9ac/Desktop/LucusEdge/opencv/coutour_model.vpm",
+        "min_score": 0.3,
+        "edge_threshold": 12.0,
+        "edge_polarity_mode": "Ignore",
+        "blur_sigma": 1.0,
+        "ref_origin_x": 338.0,
+        "ref_origin_y": 246.0
+      },
+      "node_name": "Find Pattern Match",
+      "category": "Find Functions"
+    },
+    "06d8c159-4b9a-48ce-a6f1-3bb51627191f": {
+      "module": "nodes.io_nodes",
+      "class": "LoadImageNode",
+      "properties": {
+        "file_path": "C:/LucusEdge/Example/02.Cap/data/001.png"
+      },
+      "node_name": "Load Image",
+      "category": "Image"
+    },
+    "4cdb2993-972a-41e7-b5df-ade34d46cda3": {
+      "module": "nodes.feature_nodes",
+      "class": "FindContoursNode",
+      "properties": {
+        "roi_x": 0,
+        "roi_y": 0,
+        "roi_w": 0,
+        "roi_h": 0,
+        "mode": "EXTERNAL",
+        "threshold": 80,
+        "min_area": 100.0,
+        "max_area": 1000000000.0
+      },
+      "node_name": "Find Contours",
+      "category": "Find Functions"
+    }
+  },
+  "connections": [
+    [
+      "c80d2acc-419a-4311-b0df-1ce5e64cbb23",
+      "image",
+      "37a59ac6-db38-4081-aa2c-dbe856ac5528",
+      "image"
+    ],
+    [
+      "1db017e7-3d6c-44d1-acff-91898b018782",
+      "image",
+      "1fa61d9d-740a-4c98-9c02-f7d7c695d1d8",
+      "image"
+    ],
+    [
+      "1fa61d9d-740a-4c98-9c02-f7d7c695d1d8",
+      "alignment",
+      "d12e2421-da60-4fea-a2af-4704d4e478e4",
+      "inAlignment"
+    ],
+    [
+      "1db017e7-3d6c-44d1-acff-91898b018782",
+      "image",
+      "d12e2421-da60-4fea-a2af-4704d4e478e4",
+      "image"
+    ],
+    [
+      "06d8c159-4b9a-48ce-a6f1-3bb51627191f",
+      "image",
+      "4cdb2993-972a-41e7-b5df-ade34d46cda3",
+      "image"
+    ]
+  ]
+}
