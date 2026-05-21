@@ -1,0 +1,57 @@
+{
+  "nodes": {
+    "78a0753d-845d-46e9-acfd-f66356bf283b": {
+      "module": "nodes.measurement_nodes",
+      "class": "MeasureAngleNode",
+      "properties": {
+        "pt1_x": 723,
+        "pt1_y": 85,
+        "pt2_x": 344,
+        "pt2_y": 192,
+        "pt3_x": 559,
+        "pt3_y": 374,
+        "rotation_dir": "Clockwise"
+      },
+      "node_name": "Measure Angle",
+      "category": "Measurement"
+    },
+    "f7f85fe1-019b-4e9c-916b-54fedddd9338": {
+      "module": "nodes.io_nodes",
+      "class": "LoadImageNode",
+      "properties": {
+        "file_path": "C:/Users/\uac15\uaddc\ub9ac/Desktop/LucusEdge/opencv/robotarm.jpg"
+      },
+      "node_name": "Load Image",
+      "category": "Image"
+    },
+    "febf0fdb-2c30-42d1-bbc4-15836ebe60f5": {
+      "module": "nodes.measurement_nodes",
+      "class": "MeasureAreaNode",
+      "properties": {
+        "roi_x": 0,
+        "roi_y": 0,
+        "roi_w": 0,
+        "roi_h": 0,
+        "target_color": "BLACK",
+        "threshold": 127,
+        "calibration_factor": 1.0
+      },
+      "node_name": "Measure Area",
+      "category": "Measurement"
+    }
+  },
+  "connections": [
+    [
+      "f7f85fe1-019b-4e9c-916b-54fedddd9338",
+      "image",
+      "78a0753d-845d-46e9-acfd-f66356bf283b",
+      "image"
+    ],
+    [
+      "f7f85fe1-019b-4e9c-916b-54fedddd9338",
+      "image",
+      "febf0fdb-2c30-42d1-bbc4-15836ebe60f5",
+      "image"
+    ]
+  ]
+}
