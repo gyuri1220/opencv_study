@@ -1,0 +1,52 @@
+{
+  "nodes": {
+    "a29feed6-779c-42ac-a9ab-8a8dc850d9b8": {
+      "module": "nodes.io_nodes",
+      "class": "LoadImageNode",
+      "properties": {
+        "file_path": "C:/Users/\uac15\uaddc\ub9ac/Pictures/Screenshots/\uc2a4\ud06c\ub9b0\uc0f7 2026-05-22 142208.png"
+      },
+      "node_name": "Load Image",
+      "category": "Image"
+    },
+    "8b3d7d48-8756-4fa5-af76-5623e31c4ce5": {
+      "module": "nodes.measurement_nodes",
+      "class": "MeasureCircleNode",
+      "properties": {
+        "roi_cx": 281,
+        "roi_cy": 225,
+        "roi_rx": 268,
+        "roi_ry": 234,
+        "roi_inner_rx": 23,
+        "roi_inner_ry": 17,
+        "preprocess": "CLAHE",
+        "blur_size": 5,
+        "clahe_clip": 3.0,
+        "detect_algo": "Hough-GRADIENT_ALT",
+        "thresh_mode": "Otsu",
+        "thresh_val": 128,
+        "invert": true,
+        "circularity_min": 0.1,
+        "ransac_tol": 4.0,
+        "debug_view": false,
+        "dp": 1.2,
+        "min_dist": 50.0,
+        "param1": 50.0,
+        "param2": 0.7,
+        "min_radius": 0,
+        "max_radius": 0,
+        "calibration_factor": 1.0
+      },
+      "node_name": "Measure Circle",
+      "category": "Measurement"
+    }
+  },
+  "connections": [
+    [
+      "a29feed6-779c-42ac-a9ab-8a8dc850d9b8",
+      "image",
+      "8b3d7d48-8756-4fa5-af76-5623e31c4ce5",
+      "image"
+    ]
+  ]
+}

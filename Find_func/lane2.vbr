@@ -1,0 +1,114 @@
+{
+  "nodes": {
+    "8781b60f-ee4a-4648-8102-e8ec5382851d": {
+      "module": "nodes.io_nodes",
+      "class": "LoadImageNode",
+      "properties": {
+        "file_path": "C:/Users/\uac15\uaddc\ub9ac/Desktop/LucusEdge/opencv/Find_func/image/lane.jpg"
+      },
+      "node_name": "Load Image",
+      "category": "Image"
+    },
+    "5a7b7fa6-81dc-4671-997b-01edbf016d6f": {
+      "module": "nodes.preprocessing_nodes",
+      "class": "BilateralFilterNode",
+      "properties": {
+        "roi_x": 0,
+        "roi_y": 0,
+        "roi_w": 0,
+        "roi_h": 0,
+        "d": 9,
+        "sigma_color": 75.0,
+        "sigma_space": 75.0
+      },
+      "node_name": "Bilateral Filter",
+      "category": "Preprocessing"
+    },
+    "e4859759-ac16-465b-ad82-16bf74e03bd1": {
+      "module": "nodes.preprocessing_nodes",
+      "class": "CropROINode",
+      "properties": {
+        "roi_x": 2,
+        "roi_y": 74,
+        "roi_w": 1021,
+        "roi_h": 499
+      },
+      "node_name": "Crop ROI",
+      "category": "Preprocessing"
+    },
+    "0a5525c4-f679-414c-a2b9-43d737bcab4d": {
+      "module": "nodes.preprocessing_nodes",
+      "class": "GrayscaleNode",
+      "properties": {
+        "roi_x": 0,
+        "roi_y": 0,
+        "roi_w": 0,
+        "roi_h": 0
+      },
+      "node_name": "Grayscale",
+      "category": "Preprocessing"
+    },
+    "408e2007-9244-4d7c-b5f3-4de3506939e8": {
+      "module": "nodes.feature_nodes",
+      "class": "EdgeDetectionNode",
+      "properties": {
+        "roi_x": 0,
+        "roi_y": 0,
+        "roi_w": 0,
+        "roi_h": 0,
+        "method": "CANNY",
+        "low_thresh": 50,
+        "high_thresh": 150
+      },
+      "node_name": "Find Edge",
+      "category": "Find Functions"
+    },
+    "af2398c0-7320-42f4-993c-f534967ecfe5": {
+      "module": "nodes.feature_nodes",
+      "class": "HoughLinesNode",
+      "properties": {
+        "roi_x": 0,
+        "roi_y": 0,
+        "roi_w": 0,
+        "roi_h": 0,
+        "threshold": 50,
+        "min_line_length": 60.0,
+        "max_line_gap": 10.0
+      },
+      "node_name": "Find Lines",
+      "category": "Find Functions"
+    }
+  },
+  "connections": [
+    [
+      "8781b60f-ee4a-4648-8102-e8ec5382851d",
+      "image",
+      "e4859759-ac16-465b-ad82-16bf74e03bd1",
+      "image"
+    ],
+    [
+      "e4859759-ac16-465b-ad82-16bf74e03bd1",
+      "image",
+      "0a5525c4-f679-414c-a2b9-43d737bcab4d",
+      "image"
+    ],
+    [
+      "0a5525c4-f679-414c-a2b9-43d737bcab4d",
+      "image",
+      "5a7b7fa6-81dc-4671-997b-01edbf016d6f",
+      "image"
+    ],
+    [
+      "5a7b7fa6-81dc-4671-997b-01edbf016d6f",
+      "image",
+      "408e2007-9244-4d7c-b5f3-4de3506939e8",
+      "image"
+    ],
+    [
+      "408e2007-9244-4d7c-b5f3-4de3506939e8",
+      "image",
+      "af2398c0-7320-42f4-993c-f534967ecfe5",
+      "image"
+    ]
+  ]
+}

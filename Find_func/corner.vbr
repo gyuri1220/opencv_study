@@ -1,0 +1,36 @@
+{
+  "nodes": {
+    "c5f642c8-60cc-47f3-9e20-998ff8519e73": {
+      "module": "nodes.io_nodes",
+      "class": "LoadImageNode",
+      "properties": {
+        "file_path": "C:/Users/\uac15\uaddc\ub9ac/Desktop/LucusEdge/opencv/Find_func/image/block.jpg"
+      },
+      "node_name": "Load Image",
+      "category": "Image"
+    },
+    "ea92a4ec-e88c-42a4-9e00-ce2fbd4b0065": {
+      "module": "nodes.feature_nodes",
+      "class": "CornerDetectionNode",
+      "properties": {
+        "roi_x": 0,
+        "roi_y": 0,
+        "roi_w": 0,
+        "roi_h": 0,
+        "method": "SHI_TOMASI",
+        "max_corners": 38,
+        "quality_level": 0.01
+      },
+      "node_name": "Find Corner",
+      "category": "Find Functions"
+    }
+  },
+  "connections": [
+    [
+      "c5f642c8-60cc-47f3-9e20-998ff8519e73",
+      "image",
+      "ea92a4ec-e88c-42a4-9e00-ce2fbd4b0065",
+      "image"
+    ]
+  ]
+}
